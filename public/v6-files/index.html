@@ -48,19 +48,15 @@ function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&l
 function inlineMd(s){
   let x=esc(s);
   x=x.replace(/`([^`]+)`/g,'<code>$1</code>');
-  x=x.replace(/\*\*([^*
-]+)\*\*/g,'<strong>$1</strong>');
-  x=x.replace(/__([^_
-]+)__/g,'<strong>$1</strong>');
-  x=x.replace(/\*([^*
-]+)\*/g,'<em>$1</em>');
+  x=x.replace(/\*\*([^*\n]+)\*\*/g,'<strong>$1</strong>');
+  x=x.replace(/__([^_\n]+)__/g,'<strong>$1</strong>');
+  x=x.replace(/\*([^*\n]+)\*/g,'<em>$1</em>');
   return x;
 }
 function md(text){
-  const raw=String(text??'').replace(//g,'').trim();
+  const raw=String(text??'').replace(/\r/g,'').trim();
   if(!raw)return '<p class="small">目前沒有內容</p>';
-  const lines=raw.split('
-');
+  const lines=raw.split('\n');
   let html='', inList=false, paragraph=[];
   const closeList=()=>{if(inList){html+='</ul>';inList=false}};
   const flushParagraph=()=>{if(paragraph.length){html+='<p>'+paragraph.map(inlineMd).join('<br>')+'</p>';paragraph=[]}};

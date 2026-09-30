@@ -13,8 +13,6 @@ export async function downloadV6ZipInBrowser(customFilename = 'taiwan-stock-no-g
   Object.values(V6_FILES_DATA).forEach((file) => {
     zip.file(file.filename, file.content, {
       date: new Date('2026-09-04T00:00:00Z'),
-      unixPermissions: 0o644,
-      dosPermissions: 0o20,
     });
   });
 

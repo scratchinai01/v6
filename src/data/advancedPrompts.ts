@@ -465,7 +465,7 @@ export const ADVANCED_BLUEPRINTS: AdvBlueprint[] = [
     desc: '股價具備強烈的「時間序列」特性。與傳統機器學習只看單一橫截面特徵不同，LSTM (長短期記憶神經網路) 能夠記憶過去一段時間（例如連續 15 天）的走勢型態，特別適合捕捉趨勢的連續性與反轉點。',
     advice: '熟悉 TensorFlow/Keras 或 PyTorch 框架；學習將 2D 的表格數據轉換為 LSTM 所需的 3D 張量結構 (Samples, Time Steps, Features)；並嚴格執行特徵的標準化縮放 (如 MinMaxScaler) 以利模型收斂。',
     code: LSTM_PROMPT,
-    url: 'hhttps://scratchinai01-lstm-finmind.ai.studio',
+    url: 'https://scratchinai01-lstm-finmind.ai.studio',
     buttonText: '解鎖 LSTM 實戰程式碼'
   },
   {
